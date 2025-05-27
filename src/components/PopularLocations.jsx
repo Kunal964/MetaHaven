@@ -2,7 +2,7 @@ import React from 'react';
 import LocationCard from './LocationCard';
 
 const PopularLocations = () => {
-  const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Hyderabad'];
+  const cities = ['Delhi', 'Noida', 'Gurgaon', 'Mumbai'];
 
   return (
     <div className="py-24">

@@ -6,7 +6,7 @@ const LocationCard = ({ city }) => {
     <div className="group cursor-pointer">
       <div className="aspect-w-16 aspect-h-9 mb-4">
         <img
-          src={`https://source.unsplash.com/800x600/?${city},office`}
+          src={`/images/${city}.webp`}
           alt={city}
           className="w-full h-64 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
         />

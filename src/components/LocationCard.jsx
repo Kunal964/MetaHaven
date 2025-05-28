@@ -12,8 +12,10 @@ const LocationCard = ({ city }) => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">{city}</h3>
-        <ArrowRight className="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" />
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {city}
+        </h3>
+        <ArrowRight className="h-5 w-5 text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform duration-300" />
       </div>
     </div>
   );

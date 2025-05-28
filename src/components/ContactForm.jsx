@@ -50,7 +50,9 @@ const ContactForm = ({ onClose }) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
+              placeholder="Your Name"
+
               required
             />
           </div>
@@ -61,7 +63,9 @@ const ContactForm = ({ onClose }) => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
+              placeholder="Your Email"
+
               required
             />
           </div>
@@ -72,7 +76,8 @@ const ContactForm = ({ onClose }) => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md px-4 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
+              placeholder="Your Phone Number"
               required
             />
           </div>
@@ -83,7 +88,8 @@ const ContactForm = ({ onClose }) => {
               value={formData.message}
               onChange={handleChange}
               rows="4"
-              className="w-full border border-gray-300 rounded-md px-4 py-2"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
+              placeholder="Your Message"
               required
             ></textarea>
           </div>

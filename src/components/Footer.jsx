@@ -34,8 +34,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-2">Contact Us</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>metahavenoffical@gmail.com</li>
-              <li>+91 9811179310</li>
+              <li>xxx@gmail.com</li>
+              <li>+91 98xxx79310</li>
             </ul>
           </div>
         </div>

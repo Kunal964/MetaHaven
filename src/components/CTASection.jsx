@@ -14,7 +14,7 @@ const CTASection = () => {
           </p>
           {!showForm ? (
             <button
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition-colors duration-200"
               onClick={() => setShowForm(true)}
             >
               Contact Us

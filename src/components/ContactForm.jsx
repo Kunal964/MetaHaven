@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react'; // optional: for nice icon (or use plain text)
 
+import { insertContactForm } from '../lib/supabase'
+
 const ContactForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,13 +15,18 @@ const ContactForm = ({ onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Submitted:', formData);
-    alert("Your message has been sent!");
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    onClose();
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault()
+
+  try {
+    await insertContactForm(formData)
+    alert('Your message has been sent!')
+    setFormData({ name: '', email: '', phone: '', message: '' })
+    onClose()
+  } catch (error) {
+    alert('Failed to send message. Try again later.')
+  }
+};
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -30,7 +37,6 @@ const ContactForm = ({ onClose }) => {
           className="absolute top-4 right-4 text-gray-600 hover:text-red-500 transition"
           aria-label="Close"
         >
-          {/* You can use X icon or plain text */}
           <X className="w-6 h-6" />
         </button>
 

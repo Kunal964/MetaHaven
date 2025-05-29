@@ -5,14 +5,13 @@ const PopularLocations = () => {
   const cities = ['Delhi', 'Noida', 'Gurgaon', 'Mumbai'];
 
   return (
-    <div className="py-24">
+    <div className="py-24 bg-gradient-to-r from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Popular Locations</h2>
-           <p className="mt-4 text-gray-600 dark:text-gray-300">
-             Find virtual offices in these prime business districts
-             </p>
-
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
+            Find virtual offices in these prime business districts
+          </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {cities.map((city) => (

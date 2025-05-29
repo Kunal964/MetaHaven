@@ -22,7 +22,8 @@ const Features = () => {
   ];
 
   return (
-   <div className="py-24 bg-gray-50 dark:bg-gray-900">
+   <div className="py-24 bg-gradient-to-r from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Why Choose Our Virtual Spaces?</h2>

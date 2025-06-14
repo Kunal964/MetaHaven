@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import PopularLocations from './components/PopularLocations';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+
+import ContactPage from './components/ContactPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,14 +24,29 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white scroll-smooth">
-      <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Hero />
-      <Features />
-      <PopularLocations />
-      <CTASection />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white scroll-smooth">
+        <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
+
+        {/* 👇 Routing logic goes here */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Features />
+                <PopularLocations />
+                <CTASection />
+              </>
+            }
+          />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navigation = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,18 +23,21 @@ const Navigation = ({ darkMode, setDarkMode }) => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {['Home', 'Virtual Offices', 'Locations', 'Contact Us'].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-gray-700 hover:text-indigo-600 transform transition duration-300"
-              >
-                {item}
-              </a>
-            ))}
+            <Link to="/" className="text-gray-700 hover:text-indigo-600 transition duration-300">
+              Home
+            </Link>
+            <Link to="/" className="text-gray-700 hover:text-indigo-600 transition duration-300">
+              Virtual Offices
+            </Link>
+            <Link to="/" className="text-gray-700 hover:text-indigo-600 transition duration-300">
+              Locations
+            </Link>
+            <Link to="/contact" className="text-gray-700 hover:text-indigo-600 transition duration-300">
+              Contact Us
+            </Link>
 
             <button className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-5 py-2 rounded-full shadow-lg hover:scale-105 hover:brightness-110 transition duration-300">
-              Get Started
+              Log in
             </button>
 
             <button
@@ -59,15 +63,10 @@ const Navigation = ({ darkMode, setDarkMode }) => {
       {/* Mobile Menu Dropdown */}
      {isMenuOpen && (
   <div className="md:hidden bg-gradient-to-r from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900 px-4 pb-4 pt-2 shadow-lg transition-all duration-300">
-    {['Home', 'Virtual Offices', 'Locations', 'Contact Us'].map((item) => (
-      <a
-        key={item}
-        href="#"
-        className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-zinc-800 transition"
-      >
-        {item}
-      </a>
-    ))}
+    <Link to="/" className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition">Home</Link>
+    <Link to="/" className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition">Virtual Offices</Link>
+    <Link to="/" className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition">Locations</Link>
+    <Link to="/contact" className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition">Contact Us</Link>
 
     <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 border-t pt-4">
       <div className="flex items-center space-x-4">

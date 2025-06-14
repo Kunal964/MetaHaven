@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react'; // optional: for nice icon (or use plain text)
+import { insertContactForm } from '../lib/supabase';
 
-import { insertContactForm } from '../lib/supabase'
-
-const ContactForm = ({ onClose }) => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,91 +14,81 @@ const ContactForm = ({ onClose }) => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault()
+    e.preventDefault();
 
-  try {
-    await insertContactForm(formData)
-    alert('Your message has been sent!')
-    setFormData({ name: '', email: '', phone: '', message: '' })
-    onClose()
-  } catch (error) {
-    alert('Failed to send message. Try again later.')
-  }
-};
+    try {
+      await insertContactForm(formData);
+      alert('Your message has been sent!');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      alert('Failed to send message. Try again later.');
+    }
+  };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 w-full max-w-lg relative shadow-xl">
-        {/* Close Button */}
+    <div className="w-full p-6">
+
+      <h2 className="text-2xl font-semibold mb-4 text-blue-600 text-center">Contact Us</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Name</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full border border-gray-300 dark:border-gray-600 rounded px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full border border-gray-300 dark:border-gray-600 rounded px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            placeholder="Your Email"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full border border-gray-300 dark:border-gray-600 rounded px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            placeholder="Your Phone Number"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 dark:text-gray-300 font-medium mb-1">Message</label>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows="4"
+            className="w-full border border-gray-300 dark:border-gray-600 rounded px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            placeholder="Your Message"
+            required
+          ></textarea>
+        </div>
+
         <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-600 hover:text-red-500 transition"
-          aria-label="Close"
+          type="submit"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded w-full transition"
         >
-          <X className="w-6 h-6" />
+          Send
         </button>
-
-        {/* Form Content */}
-        <h2 className="text-2xl font-semibold mb-6 text-center text-blue-600">Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
-              placeholder="Your Name"
-
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
-              placeholder="Your Email"
-
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Phone Number</label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
-              placeholder="Your Phone Number"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="4"
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400"
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full"
-          >
-            Send
-          </button>
-        </form>
-      </div>
+      </form>
     </div>
   );
 };

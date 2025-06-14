@@ -4,12 +4,11 @@ import { MapPin } from 'lucide-react';
 const Hero = () => {
   return (
     <div
-      className="relative bg-cover bg-center bg-no-repeat transition-all duration-500"
+      className="pt-8 relative bg-cover bg-center bg-no-repeat transition-all duration-500"
       style={{
-        backgroundImage: `url('/HeroSection.jpeg')`,
+        backgroundImage: `url('/images/HeroSection.jpeg')`,
         minHeight: '100vh',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        minHeight: 'calc(100vh + 4rem)'
       }}
     >
       {/* Dark Overlay */}

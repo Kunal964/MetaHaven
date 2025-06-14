@@ -4,7 +4,7 @@ import ContactForm from './ContactForm';
 
 const ContactPage = () => {
   return (
-    <div className="pt-16 min-h-screen bg-gradient-to-r from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900 flex flex-col md:flex-row items-center justify-center p-6 gap-10">
+    <div className="pt-16 min-h-screen bg-white dark:bg-zinc-900 flex flex-col md:flex-row items-center justify-center p-6 gap-10">
       
       {/* Left Side - Contact Form */}
       <div className="w-full md:w-1/2">

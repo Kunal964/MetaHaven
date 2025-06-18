@@ -4,9 +4,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ContactForm from "./ContactForm";
 import { Mail, Phone } from "lucide-react";
 
-
-
-
 const Navigation = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,7 +34,8 @@ const Navigation = ({ darkMode, setDarkMode }) => {
         } shadow-md fixed w-full z-50 transition-all duration-500`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="hidden md:flex items-center h-16 w-full justify-between">
+          {/* 🖥️ Desktop View */}
+          <div className="hidden md:flex items-center py-4">
             {/* ✅ Left: Logo */}
             <div className="flex items-center space-x-2">
               <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
@@ -46,58 +44,56 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               </span>
             </div>
 
-            {/* ✅ Center: Navigation Links + Contact Info */}
-            <div className="flex items-center space-x-6">
-              {["Home", "Virtual Offices", "Locations"].map((item, i) => (
-                <Link
-                  key={i}
-                  to="/"
-                  className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
-                    after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-                    after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item}
-                </Link>
-              ))}
-
-              {/* ✅ Contact Us Link */}
+            {/* ✅ Center-Right: Navigation Links with reduced spacing */}
+            <div className="flex space-x-8 ml-auto mr-8">
+              <Link
+                to="/"
+                className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
+          after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Home
+              </Link>
+              <Link
+                to="/"
+                className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
+          after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Virtual Offices
+              </Link>
+              <Link
+                to="/"
+                className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
+          after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                Locations
+              </Link>
               <Link
                 to="/contact"
                 className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
-                  after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-                  after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+          after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
               >
                 Contact Us
               </Link>
-
-              {/* ✅ Contact Info (placed between Contact Us and Login) */}
-              <div className="text-sm text-gray-700 dark:text-gray-300 flex items-center space-x-4 pl-4 border-l border-gray-300 dark:border-gray-600 ml-2">
-                <div className="flex items-center space-x-1">
-                  <Mail className="h-4 w-4 text-indigo-600" />
-                  <span>VirtualSpace@MetaHaven.in</span>
-                </div>
-                <span className="text-gray-400">|</span>
-                <div className="flex items-center space-x-1">
-                  <Phone className="h-4 w-4 text-pink-600" />
-                  <span>+91-9811179310</span>
-                </div>
-              </div>
             </div>
 
-            {/* ✅ Right: Log in & Toggle */}
-            {/* <div className="flex items-center space-x-4">
-              <button className="px-4 py-1.5 border border-indigo-600 text-black dark:text-white dark:border-indigo-400 rounded-md hover:bg-indigo-50 dark:hover:bg-zinc-800 transition">
-                Log in / Sign up
-              </button>
-
-              <button
-                onClick={toggleDarkMode}
-                className="text-xl hover:scale-110 transition-transform"
-              >
-                {darkMode ? "☀️" : "🌙"}
-              </button>
-            </div> */}
+            {/* ✅ Right: Contact Info */}
+            <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-700 dark:text-gray-300">
+              <div className="flex items-center space-x-1">
+                <Mail className="h-4 w-4 text-indigo-600" />
+                <span>VirtualSpace@MetaHaven.in</span>
+              </div>
+              <span className="text-gray-400">|</span>
+              <div className="flex items-center space-x-1">
+                <Phone className="h-4 w-4 text-pink-600" />
+                <span>+91-9811179310</span>
+              </div>
+            </div>
           </div>
+
           {/* Mobile View Toggle Button (hamburger) */}
           <div className="flex md:hidden justify-between items-center h-16">
             {/* Logo */}
@@ -127,7 +123,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
           <div
             className={`md:hidden px-4 pb-4 pt-2 shadow-lg rounded-b-xl transition-all duration-300 
       backdrop-blur-md bg-white/10 dark:bg-zinc-800/30 border border-white/20 dark:border-zinc-700/40 
-      ring-1 ring-white/10 space-y-3`} // 👈 spacing between items
+      ring-1 ring-white/10 space-y-3`}
           >
             <Link
               to="/"
@@ -167,14 +163,16 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             </Link>
 
             <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 border-t pt-4">
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-2">
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex items-center space-x-1">
                   <Mail className="h-4 w-4 text-indigo-600" />
-                  <span>VirtualSpace@MetaHaven.in</span>
+                  <span className="text-xs sm:text-sm break-all">
+                    VirtualSpace@MetaHaven.in
+                  </span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-1">
                   <Phone className="h-4 w-4 text-pink-600" />
-                  <span>+91-9811179310</span>
+                  <span className="text-xs sm:text-sm">+91-9811179310</span>
                 </div>
               </div>
             </div>
@@ -198,9 +196,5 @@ const Navigation = ({ darkMode, setDarkMode }) => {
     </>
   );
 };
-
-
-
-
 
 export default Navigation;

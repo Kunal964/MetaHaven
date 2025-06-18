@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Building2, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ContactForm from "./ContactForm";
+import { Mail, Phone } from "lucide-react";
+
 
 
 
@@ -69,15 +71,21 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               </Link>
 
               {/* ✅ Contact Info (placed between Contact Us and Login) */}
-              <div className="text-sm text-gray-700 dark:text-gray-300 flex space-x-4 pl-4 border-l border-gray-300 dark:border-gray-600 ml-2">
-                <p>📧 Admin@mhworkspace.com</p>
+              <div className="text-sm text-gray-700 dark:text-gray-300 flex items-center space-x-4 pl-4 border-l border-gray-300 dark:border-gray-600 ml-2">
+                <div className="flex items-center space-x-1">
+                  <Mail className="h-4 w-4 text-indigo-600" />
+                  <span>VirtualSpace@MetaHaven.in</span>
+                </div>
                 <span className="text-gray-400">|</span>
-                <p>📞 +91 123456789</p>
+                <div className="flex items-center space-x-1">
+                  <Phone className="h-4 w-4 text-pink-600" />
+                  <span>+91-9811179310</span>
+                </div>
               </div>
             </div>
 
             {/* ✅ Right: Log in & Toggle */}
-            <div className="flex items-center space-x-4">
+            {/* <div className="flex items-center space-x-4">
               <button className="px-4 py-1.5 border border-indigo-600 text-black dark:text-white dark:border-indigo-400 rounded-md hover:bg-indigo-50 dark:hover:bg-zinc-800 transition">
                 Log in / Sign up
               </button>
@@ -88,7 +96,29 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               >
                 {darkMode ? "☀️" : "🌙"}
               </button>
+            </div> */}
+          </div>
+          {/* Mobile View Toggle Button (hamburger) */}
+          <div className="flex md:hidden justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex items-center space-x-2">
+              <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-800 to-indigo-900 text-transparent bg-clip-text">
+                MetaHaven
+              </span>
             </div>
+
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-700 dark:text-white hover:text-indigo-600"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
 
@@ -96,28 +126,27 @@ const Navigation = ({ darkMode, setDarkMode }) => {
         {isMenuOpen && (
           <div
             className={`md:hidden px-4 pb-4 pt-2 shadow-lg rounded-b-xl transition-all duration-300 
-    backdrop-blur-md bg-white/10 dark:bg-zinc-800/30 border border-white/20 dark:border-zinc-700/40 ring-1 ring-white/10 ${
-      isHome ? "" : ""
-    }`}
+      backdrop-blur-md bg-white/10 dark:bg-zinc-800/30 border border-white/20 dark:border-zinc-700/40 
+      ring-1 ring-white/10 space-y-3`} // 👈 spacing between items
           >
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
             >
               Home
             </Link>
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
             >
               Virtual Offices
             </Link>
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
             >
               Locations
             </Link>
@@ -125,27 +154,28 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               to={isMobile ? "#" : "/contact"}
               onClick={(e) => {
                 if (isMobile) {
-                  e.preventDefault(); // prevent navigation
+                  e.preventDefault();
                   setIsMenuOpen(false);
                   setShowPopup(true);
                 } else {
-                  setIsMenuOpen(false); // close menu normally
+                  setIsMenuOpen(false);
                 }
               }}
-              className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:text-indigo-600 transition"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
             >
               Contact Us
             </Link>
 
             <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 border-t pt-4">
-              <div className="flex items-center space-x-4">
-                <p className="mb-0 text-gray-700 dark:text-white">
-                  📧 Admin@mhworkspace.com
-                </p>
-                <span className="text-gray-400">|</span>
-                <p className="mb-0 text-gray-700 dark:text-white">
-                  📞 +91 123456789
-                </p>
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4 text-indigo-600" />
+                  <span>VirtualSpace@MetaHaven.in</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4 text-pink-600" />
+                  <span>+91-9811179310</span>
+                </div>
               </div>
             </div>
           </div>

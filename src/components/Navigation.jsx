@@ -6,14 +6,14 @@ import { Mail, Phone } from "lucide-react";
 
 const Navigation = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-
-  const [isMobile, setIsMobile] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
+  
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize(); // Initial check
@@ -36,7 +36,6 @@ const Navigation = ({ darkMode, setDarkMode }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 🖥️ Desktop View */}
           <div className="hidden md:flex items-center py-4">
-            {/* ✅ Left: Logo */}
             <div className="flex items-center space-x-2">
               <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
               <span className="text-xl font-bold bg-gradient-to-r from-purple-800 to-indigo-900 text-transparent bg-clip-text">
@@ -96,7 +95,6 @@ const Navigation = ({ darkMode, setDarkMode }) => {
 
           {/* Mobile View Toggle Button (hamburger) */}
           <div className="flex md:hidden justify-between items-center h-16">
-            {/* Logo */}
             <div className="flex items-center space-x-2">
               <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
               <span className="text-xl font-bold bg-gradient-to-r from-purple-800 to-indigo-900 text-transparent bg-clip-text">
@@ -104,7 +102,6 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               </span>
             </div>
 
-            {/* Hamburger Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 dark:text-white hover:text-indigo-600"
@@ -181,16 +178,8 @@ const Navigation = ({ darkMode, setDarkMode }) => {
       </nav>
 
       {showPopup && isMobile && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg w-11/12 max-w-md relative">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-2 right-3 text-gray-600 dark:text-gray-300 text-xl font-bold"
-            >
-              &times;
-            </button>
-            <ContactForm />
-          </div>
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
+          <ContactForm onClose={() => setShowPopup(false)} />
         </div>
       )}
     </>

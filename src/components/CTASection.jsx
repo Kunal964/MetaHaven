@@ -7,10 +7,9 @@ const CTASection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  // Detect screen width
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -40,18 +39,10 @@ const CTASection = () => {
         </button>
       </div>
 
-      {/* Mobile popup */}
+      {/* Mobile popup only */}
       {showPopup && isMobile && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg w-11/12 max-w-md relative">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-2 right-3 text-gray-600 dark:text-gray-300 text-xl font-bold"
-            >
-              &times;
-            </button>
-            <ContactForm />
-          </div>
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <ContactForm onClose={() => setShowPopup(false)} />
         </div>
       )}
     </div>

@@ -35,12 +35,18 @@ const Navigation = ({ darkMode, setDarkMode }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 🖥️ Desktop View */}
-          <div className="hidden md:flex items-center py-4">
-            <div className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-800 to-indigo-900 text-transparent bg-clip-text">
-                MetaHaven
-              </span>
+          <div className="hidden md:flex items-center h-16">
+            <div
+              className="flex items-center"
+              style={{ height: "64px", overflow: "hidden" }}
+            >
+              <Link to="/">
+                <img
+                  src="/CompanyLogo.png"
+                  alt="Metahaven Logo"
+                  className="h-16 w-auto object-contain cursor-pointer"
+                />
+              </Link>
             </div>
 
             {/* ✅ Center-Right: Navigation Links with reduced spacing */}

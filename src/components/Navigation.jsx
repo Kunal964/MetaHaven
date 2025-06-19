@@ -101,13 +101,18 @@ const Navigation = ({ darkMode, setDarkMode }) => {
 
           {/* Mobile View Toggle Button (hamburger) */}
           <div className="flex md:hidden justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 text-indigo-600 animate-pulse" />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-800 to-indigo-900 text-transparent bg-clip-text">
-                MetaHaven
-              </span>
+            <div
+              className="flex items-center"
+              style={{ height: "64px", overflow: "hidden" }}
+            >
+              <Link to="/">
+                <img
+                  src="/CompanyLogo.png"
+                  alt="Metahaven Logo"
+                  className="h-16 w-auto object-contain cursor-pointer"
+                />
+              </Link>
             </div>
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 dark:text-white hover:text-indigo-600"

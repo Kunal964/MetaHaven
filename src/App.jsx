@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -8,11 +9,25 @@ import Features from './components/Features';
 import PopularLocations from './components/PopularLocations';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import Gurgaon from './components/locations/Gurgaon';
+import Delhi from './components/locations/Delhi';
+import Noida from './components/locations/Noida';
 
 import ContactPage from './components/ContactPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  }, [pathname]);
+
+  return null;
+}
 
   useEffect(() => {
     // Apply dark class on <html> tag
@@ -25,6 +40,7 @@ function App() {
 
   return (
     <Router>
+       <ScrollToTop />
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white scroll-smooth">
         <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
 
@@ -42,6 +58,11 @@ function App() {
             }
           />
           <Route path="/contact" element={<ContactPage />} />
+
+           {/* 👇 Location screens */}
+          <Route path="/location/gurgaon" element={<Gurgaon />} />
+          <Route path="/location/delhi" element={<Delhi />} />
+          <Route path="/location/noida" element={<Noida />} />
         </Routes>
 
         <Footer />

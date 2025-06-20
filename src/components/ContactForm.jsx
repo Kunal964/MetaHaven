@@ -30,14 +30,17 @@ const ContactForm = ({ onClose }) => {
       alert('Failed to send message. Try again later.');
     }
   };
-
   
 useEffect(() => {
-  document.body.style.overflow = visible ? 'hidden' : 'auto';
-  return () => {
-    document.body.style.overflow = 'auto'; // clean up on unmount
-  };
-}, [visible]);
+  // Only lock scroll if ContactForm is used in popup mode
+  if (onClose) {
+    document.body.style.overflow = visible ? 'hidden' : 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }
+}, [visible, onClose]);
+
 
   return (
     <AnimatePresence>

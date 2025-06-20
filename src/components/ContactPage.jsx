@@ -12,7 +12,7 @@ const ContactPage = () => {
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             We'd love to hear from you! Fill out the form and our team will get in touch shortly.
           </p>
-          <ContactForm onClose={() => {}} />
+          <ContactForm />
         </div>
 
         {/* Right Side - Image */}

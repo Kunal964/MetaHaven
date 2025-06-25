@@ -8,10 +8,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <Building2 className="h-8 w-8 text-blue-400" />
-              <span className="ml-2 text-xl font-bold">MetaHaven</span>
+              <img
+                src="images/CompanyLogo.png"
+                alt="Metahaven Logo"
+                className="h-16 w-auto object-contain cursor-pointer"
+              />
             </div>
-            <p className="text-gray-400">Your trusted partner in virtual office solutions</p>
+            <p className="text-gray-400">
+              Your trusted partner in virtual office solutions
+            </p>
           </div>
           <div>
             <h3 className="text-lg font-bold mb-2">Services</h3>
@@ -34,8 +39,22 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-2">Contact Us</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>xxx@gmail.com</li>
-              <li>+91 98xxx79310</li>
+              <li>
+                <a
+                  href="mailto:VirtualSpace@MetaHaven.in"
+                  className="hover:text-indigo-500 transition"
+                >
+                  VirtualSpace@MetaHaven.in
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+919811179310"
+                  className="hover:text-indigo-500 transition"
+                >
+                  +91 9811179310
+                </a>
+              </li>
             </ul>
           </div>
         </div>

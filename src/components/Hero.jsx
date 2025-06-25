@@ -29,7 +29,7 @@ const Hero = () => {
     <div
       className="pt-8 relative bg-cover bg-center bg-no-repeat transition-all duration-500"
       style={{
-        backgroundImage: `url('/images/HeroSection.jpeg')`,
+        backgroundImage: `url('/images/Office2.jpg')`,
         minHeight: "100vh",
       }}
     >

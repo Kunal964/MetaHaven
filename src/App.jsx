@@ -14,6 +14,9 @@ import Delhi from './components/locations/Delhi';
 import Noida from './components/locations/Noida';
 
 import ContactPage from './components/ContactPage';
+import Ahmedabad from './components/locations/Ahmedabad';
+import Mumbai from './components/locations/Mumbai';
+import Bangalore from './components/locations/Bangalore';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -63,6 +66,9 @@ function ScrollToTop() {
           <Route path="/location/gurgaon" element={<Gurgaon />} />
           <Route path="/location/delhi" element={<Delhi />} />
           <Route path="/location/noida" element={<Noida />} />
+          <Route path="/location/ahmedabad" element={<Ahmedabad />} />
+          <Route path="/location/mumbai" element={<Mumbai />} />
+          <Route path="/location/bangalore" element={<Bangalore />} />
         </Routes>
 
         <Footer />

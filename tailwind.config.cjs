@@ -1,7 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+// tailwind.config.cjs
+module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class', // dark mode toggle by class
+  darkMode: 'class',
   theme: {
     extend: {
       animation: {
@@ -15,5 +15,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };

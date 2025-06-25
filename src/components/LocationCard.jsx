@@ -1,12 +1,22 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LocationCard = ({ city }) => {
+  const navigate = useNavigate();
+
+  const handleCityClick = () => {
+    navigate(`/location/${city.toLowerCase()}`);
+  };
+
   return (
-    <div className="group cursor-pointer">
+    <div
+      className="group cursor-pointer"
+      onClick={handleCityClick}
+    >
       <div className="aspect-w-16 aspect-h-9 mb-4">
         <img
-          src={`/images/${city}.webp`}
+          src={`/images/${city}.jpg`}
           alt={city}
           className="w-full h-64 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
         />

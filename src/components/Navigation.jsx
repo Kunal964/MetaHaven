@@ -55,7 +55,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 to="/"
                 className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full font-semibold"
               >
                 Home
               </Link>
@@ -63,7 +63,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 to="/"
                 className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full font-semibold"
               >
                 Virtual Offices
               </Link>
@@ -71,7 +71,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 to="/"
                 className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full font-semibold"
               >
                 Locations
               </Link>
@@ -79,7 +79,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 to="/contact"
                 className="relative text-black dark:text-white hover:text-indigo-600 transition duration-300 
           after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] 
-          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full"
+          after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full font-semibold"
               >
                 Contact Us
               </Link>
@@ -87,14 +87,21 @@ const Navigation = ({ darkMode, setDarkMode }) => {
 
             {/* ✅ Right: Contact Info */}
             <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-700 dark:text-gray-300">
-              <div className="flex items-center space-x-1">
-                <Mail className="h-4 w-4 text-indigo-600" />
-                <span>VirtualSpace@MetaHaven.in</span>
+              <div className="flex items-center space-x-1 font-semibold">
+                <Mail className="h-4 w-4 text-indigo-600 " />
+                <a
+                  href="mailto:VirtualSpace@MetaHaven.in"
+                  className="hover:underline"
+                >
+                  VirtualSpace@MetaHaven.in
+                </a>
               </div>
               <span className="text-gray-400">|</span>
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-1 font-semibold">
                 <Phone className="h-4 w-4 text-pink-600" />
-                <span>+91-9811179310</span>
+                <a href="tel:9811179310" className="hover:underline">
+                  +91-9811179310
+                </a>
               </div>
             </div>
           </div>
@@ -136,21 +143,21 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300 font-semibold"
             >
               Home
             </Link>
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300 font-semibold"
             >
               Virtual Offices
             </Link>
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300 font-semibold"
             >
               Locations
             </Link>
@@ -165,22 +172,27 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                   setIsMenuOpen(false);
                 }
               }}
-              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300"
+              className="block text-black dark:text-white hover:text-indigo-600 transition duration-300 font-semibold"
             >
               Contact Us
             </Link>
 
             <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 border-t pt-4">
               <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 font-semibold">
                   <Mail className="h-4 w-4 text-indigo-600" />
-                  <span className="text-xs sm:text-sm break-all">
+                  <a
+                    href="mailto:VirtualSpace@MetaHaven.in"
+                    className="hover:underline"
+                  >
                     VirtualSpace@MetaHaven.in
-                  </span>
+                  </a>
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 font-semibold">
                   <Phone className="h-4 w-4 text-pink-600" />
-                  <span className="text-xs sm:text-sm">+91-9811179310</span>
+                  <a href="tel:9811179310" className="hover:underline">
+                    +91-9811179310
+                  </a>
                 </div>
               </div>
             </div>

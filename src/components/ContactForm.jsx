@@ -132,10 +132,12 @@ useEffect(() => {
                 ></textarea>
               </div>
 
-              <div className="pt-2">
+              <div className="flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition transform hover:scale-[1.02] shadow-md"
+                  className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-md 
+             hover:brightness-110 hover:shadow-lg hover:scale-105 
+             transition-all duration-300 ease-in-out transform"
                 >
                   Send Message
                 </button>

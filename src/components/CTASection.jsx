@@ -23,7 +23,7 @@ const CTASection = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900 py-16 relative">
+    <div className="bg-white from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900 py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
           Ready to get started?
@@ -33,7 +33,9 @@ const CTASection = () => {
         </p>
         <button
           onClick={handleContactClick}
-          className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-md hover:brightness-110 transition-all duration-300"
+          className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-md 
+             hover:brightness-110 hover:shadow-lg hover:scale-105 
+             transition-all duration-300 ease-in-out transform"
         >
           Contact Us
         </button>

@@ -41,10 +41,10 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a
-                  href="mailto:VirtualSpace@MetaHaven.in"
+                  href="mailto:VirtualOffice@MetaHaven.in"
                   className="hover:text-indigo-500 transition"
                 >
-                  VirtualSpace@MetaHaven.in
+                  VirtualOffice@MetaHaven.in
                 </a>
               </li>
               <li>

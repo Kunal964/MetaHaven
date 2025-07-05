@@ -90,10 +90,10 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               <div className="flex items-center space-x-1 font-semibold">
                 <Mail className="h-4 w-4 text-indigo-600 " />
                 <a
-                  href="mailto:VirtualSpace@MetaHaven.in"
+                  href="mailto:VirtualOffice@MetaHaven.in"
                   className="hover:underline"
                 >
-                  VirtualSpace@MetaHaven.in
+                  VirtualOffice@MetaHaven.in
                 </a>
               </div>
               <span className="text-gray-400">|</span>
@@ -182,10 +182,10 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 <div className="flex items-center space-x-1 font-semibold">
                   <Mail className="h-4 w-4 text-indigo-600" />
                   <a
-                    href="mailto:VirtualSpace@MetaHaven.in"
+                    href="mailto:VirtualOffice@MetaHaven.in"
                     className="hover:underline"
                   >
-                    VirtualSpace@MetaHaven.in
+                    VirtualOffice@MetaHaven.in
                   </a>
                 </div>
                 <div className="flex items-center space-x-1 font-semibold">

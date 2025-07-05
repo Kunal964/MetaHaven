@@ -10,9 +10,14 @@ const Features = () => {
       description:
         "Register your company at premium addresses in any city in India without taking a physical office space.",
       points: [
-        "New Company Registration Address",
-        "New GST Registration, GST Registration for APOB",
-        "Mail & Courier Handling, Address on Business Cards, Letter Heads",
+        "New Company Registration Address.",
+        "New GST Registration, GST Registration for APOB.",
+        "Build Trust, Look Professional.", 
+        "Mail & Courier Handling, Address on Business Cards, Letter Heads.",
+        "Easily open a dedicated current account in your new company's name.",
+        "Keep your personal home address off public records and ensure your privacy.",
+        "Save on heavy initial setup costs like rent, security deposits, and office maintenance."
+         
       ],
     },
     {
@@ -21,8 +26,11 @@ const Features = () => {
       description:
         "Expand your existing business to new states in the country. GST registration for Additional place of business (APOB)",
       points: [
-        "New GST Registration, GST Registration for APOB",
-        "Mail & Courier Handling, Address on Business Cards, Letter Heads",
+        "New GST Registration, GST Registration for APOB.",
+        "Mail & Courier Handling, Address on Business Cards, Letter Heads.",
+        "Dedicated support and assistance during the physical verification process by GST officials.",
+        "Use the GST registration to easily open a current bank account for your business.",
+        "Receive all required documents: Rent Agreement, No-Objection Certificate (NOC), and a recent utility bill.",
       ],
     },
     {
@@ -31,7 +39,13 @@ const Features = () => {
       description:
         "Get a professional business address for your company at prime locations",
       points: [
-        "Mail & Courier Handling, Address on Business Cards, Letter Heads",
+        "Mail & Courier Handling, Address on Business Cards, Letter Heads.",
+        "A prestigious business address in a prime city location.",
+        "A dedicated team to receive all your mails and couriers.",
+        "Gives you the flexibility to register your business in a major city.",
+        "Fully compliant with MCA (Ministry of Corporate Affairs) regulations.",
+        "A valid commercial address for all GST registration needs.",
+        "Receive all necessary documentation for address verification.",
       ],
     },
   ];

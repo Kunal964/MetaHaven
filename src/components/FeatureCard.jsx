@@ -11,6 +11,7 @@ const FeatureCard = ({ icon: Icon, title, description, points = [] }) => {
     >
       <div>
         <Icon className="h-10 w-10 sm:h-12 sm:w-12 text-blue-600 mb-3 sm:mb-4" />
+        <hr className="h-px my-4 bg-black border-0 dark:bg-gray-600" />
         <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900 dark:text-white">
           {title}
         </h3>

@@ -55,7 +55,7 @@ function ScrollToTop() {
               <>
                 <Hero />
                 <Features />
-                <PopularLocations />
+                {/* <PopularLocations /> */}
                 <CTASection />
               </>
             }

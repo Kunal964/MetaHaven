@@ -99,8 +99,8 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               <span className="text-gray-400">|</span>
               <div className="flex items-center space-x-1 font-semibold">
                 <Phone className="h-4 w-4 text-pink-600" />
-                <a href="tel:9811179310" className="hover:underline">
-                  +91-9811179310
+                <a href="tel:8368299618" className="hover:underline">
+                  +91-8368299618
                 </a>
               </div>
             </div>
@@ -190,8 +190,8 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 </div>
                 <div className="flex items-center space-x-1 font-semibold">
                   <Phone className="h-4 w-4 text-pink-600" />
-                  <a href="tel:9811179310" className="hover:underline">
-                    +91-9811179310
+                  <a href="tel:8368299618" className="hover:underline">
+                    +91-8368299618
                   </a>
                 </div>
               </div>

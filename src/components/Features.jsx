@@ -52,10 +52,10 @@ const Features = () => {
 
 
   return (
-   <div className="py-24 bg-white from-indigo-100 via-white to-cyan-100 dark:from-indigo-900 dark:via-zinc-900 dark:to-cyan-900">
+   <div className="pt-6 pb-8 bg-white dark:bg-gray-900">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Choose a Virtual Office based on your needs</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

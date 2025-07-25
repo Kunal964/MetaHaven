@@ -1,29 +1,31 @@
+// src/pages/ContactPage.jsx
 import React from 'react';
-import ContactForm from './ContactForm';
+import ContactForm from '../components/ContactForm'; // Naya wala form import kiya
 
 const ContactPage = () => {
   return (
-    <div className="pt-16 min-h-screen overflow-y-auto bg-white dark:bg-zinc-900 px-6">
-      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-start justify-center gap-10">
-        
-        {/* Left Side - Form + Message */}
-        <div className="w-full md:w-1/2 min-h-[550px] flex flex-col justify-start">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Contact Us
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            We'd love to hear from you! Fill out the form and our team will get in touch shortly.
-          </p>
-          <ContactForm />
-        </div>
+    // Main container
+    <div className="bg-white dark:bg-zinc-900">
+      <div className="container mx-auto px-4 py-16 sm:py-24">
+        {/* Grid layout for form and image */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Side: Form */}
+          <div className="w-full">
+            {/* Yahan onClose prop nahi denge, taaki yeh page mode mein render ho */}
+            <ContactForm />
+          </div>
 
-        {/* Right Side - Image */}
-        <div className="w-full md:w-1/2 min-h-[550px]">
-          <img
-            src="/images/Office_1.jpg"
-            alt="Virtual Office"
-            className="rounded-lg shadow-lg w-full h-full object-cover"
-          />
+          {/* Right Side: Image */}
+          <div className="w-full h-full hidden md:block">
+            <img
+              src="/images/Office_1.jpg" // Make sure this image path is correct in your public folder
+              alt="Our office space"
+              className="rounded-xl shadow-2xl w-full h-full max-h-[600px] object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x600/e2e8f0/475569?text=MetaHaven+Office'; }}
+            />
+          </div>
+
         </div>
       </div>
     </div>

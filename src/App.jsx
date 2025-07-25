@@ -1,36 +1,37 @@
+// src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+// Layout Components
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import PopularLocations from './components/PopularLocations';
-import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+
+// Page Components
+import HomePage from './components/pages/HomePage.jsx'; // Naya HomePage import kiya
+import ContactPage from './components/ContactPage';
+
+// Location Page Components
 import Gurgaon from './components/locations/Gurgaon';
 import Delhi from './components/locations/Delhi';
 import Noida from './components/locations/Noida';
-
-import ContactPage from './components/ContactPage';
 import Ahmedabad from './components/locations/Ahmedabad';
 import Mumbai from './components/locations/Mumbai';
 import Bangalore from './components/locations/Bangalore';
 
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
+// Helper component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
+    // Using 'auto' for instant scroll to top, 'smooth' can feel slow on page change
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, [pathname]);
 
   return null;
 }
+
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     // Apply dark class on <html> tag
@@ -43,34 +44,29 @@ function ScrollToTop() {
 
   return (
     <Router>
-       <ScrollToTop />
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white scroll-smooth">
+      <ScrollToTop />
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+        {/* Navigation aur Footer har page par dikhenge */}
         <Navigation darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        {/* 👇 Routing logic goes here */}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Hero />
-                <Features />
-                {/* <PopularLocations /> */}
-                <CTASection />
-              </>
-            }
-          />
-          <Route path="/contact" element={<ContactPage />} />
+        <main>
+          <Routes>
+            {/* Root route ab HomePage component render karega */}
+            <Route path="/" element={<HomePage />} />
+            
+            {/* Baaki saare routes waise hi rahenge */}
+            <Route path="/contact" element={<ContactPage />} />
 
-           {/* 👇 Location screens */}
-          <Route path="/location/gurgaon" element={<Gurgaon />} />
-          <Route path="/location/delhi" element={<Delhi />} />
-          <Route path="/location/noida" element={<Noida />} />
-          <Route path="/location/ahmedabad" element={<Ahmedabad />} />
-          <Route path="/location/mumbai" element={<Mumbai />} />
-          <Route path="/location/bangalore" element={<Bangalore />} />
-        </Routes>
-
+            {/* Location screens */}
+            <Route path="/location/gurgaon" element={<Gurgaon />} />
+            <Route path="/location/delhi" element={<Delhi />} />
+            <Route path="/location/noida" element={<Noida />} />
+            <Route path="/location/ahmedabad" element={<Ahmedabad />} />
+            <Route path="/location/mumbai" element={<Mumbai />} />
+            <Route path="/location/bangalore" element={<Bangalore />} />
+          </Routes>
+        </main>
+        
         <Footer />
       </div>
     </Router>

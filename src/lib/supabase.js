@@ -5,6 +5,8 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+//contact form related functions
 export const insertContactForm = async (data) => {
   const { data: response, error } = await supabase
     .from('contact_forms')
@@ -12,6 +14,20 @@ export const insertContactForm = async (data) => {
 
   if (error) {
     console.error('Error inserting contact form:', error)
+    throw error
+  }
+
+  return response
+}
+
+//Talk to an expert related functions
+export const insertExpertDetails = async (data) => {
+  const { data: response, error } = await supabase
+    .from('contact_details')
+    .insert([data])
+
+  if (error) {
+    console.error('Error inserting expert details:', error)
     throw error
   }
 

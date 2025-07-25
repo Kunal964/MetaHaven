@@ -17,6 +17,9 @@ const Hero = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+
   const filteredCities = cities.filter((city) =>
     city.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -30,7 +33,7 @@ const Hero = () => {
       className="pt-8 relative bg-cover bg-center bg-no-repeat transition-all duration-500"
       style={{
         backgroundImage: `url('/images/Office2.jpg')`,
-        minHeight: "100vh",
+        minHeight: "80vh",
       }}
     >
       {/* Dark Overlay */}
@@ -58,9 +61,43 @@ const Hero = () => {
               type="text"
               placeholder="Search for a location..."
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="flex-1 bg-transparent text-white placeholder-white/70 
-        focus:outline-none"
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setSelectedIndex(-1); // new typing resets selection
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowDown") {
+                  e.preventDefault();
+                  setSelectedIndex((prev) => {
+                    const newIndex =
+                      prev < filteredCities.length - 1 ? prev + 1 : 0;
+                    setQuery(filteredCities[newIndex]?.name || ""); // Yeh line add karo
+                    return newIndex;
+                  });
+                } else if (e.key === "ArrowUp") {
+                  e.preventDefault();
+                  setSelectedIndex((prev) => {
+                    const newIndex =
+                      prev > 0 ? prev - 1 : filteredCities.length - 1;
+                    setQuery(filteredCities[newIndex]?.name || ""); // Yeh line add karo
+                    return newIndex;
+                  });
+                } else if (e.key === "Enter") {
+                  e.preventDefault();
+                  if (
+                    selectedIndex >= 0 &&
+                    selectedIndex < filteredCities.length
+                  ) {
+                    const selectedCity = filteredCities[selectedIndex];
+                    setQuery(selectedCity.name);
+                    setSelectedIndex(-1);
+                    handleCityClick(selectedCity.name);
+                  } else if (filteredCities.length > 0) {
+                    handleCityClick(filteredCities[0].name);
+                  }
+                }
+              }}
+              className="flex-1 bg-transparent text-white placeholder-white/70 focus:outline-none"
             />
             <button
               onClick={() => {
@@ -76,15 +113,16 @@ const Hero = () => {
 
           {/* Autocomplete Suggestions */}
           {query && (
-            <ul
-              className="absolute left-0 right-0 mt-2 bg-white text-black rounded-xl 
-    shadow-lg animate-slide-fade z-20 max-h-60 overflow-y-auto text-left"
-            >
+            <ul className="absolute left-0 right-0 mt-2 bg-white text-black rounded-xl shadow-lg animate-slide-fade z-20 max-h-60 overflow-y-auto text-left">
               {filteredCities.map((city, index) => (
                 <li
                   key={index}
                   onClick={() => handleCityClick(city.name)}
-                  className="px-6 py-2 cursor-pointer hover:bg-gray-100 transition-all"
+                  className={`px-6 py-2 cursor-pointer hover:bg-gray-100 transition-all ${
+                    selectedIndex === index ? "bg-gray-200" : ""
+                  }`}
+                  onMouseEnter={() => setSelectedIndex(index)} // mouse se bhi highlight
+                  onMouseLeave={() => setSelectedIndex(-1)}
                 >
                   {city.name}
                 </li>
@@ -94,7 +132,7 @@ const Hero = () => {
         </div>
 
         {/* Clickable City Icons */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-x-4 gap-y-6 justify-items-center mt-6">
+        {/* <div className="grid grid-cols-3 md:grid-cols-6 gap-x-4 gap-y-6 justify-items-center mt-6">
           {cities.map((city, index) => (
             <div
               key={index}
@@ -114,7 +152,7 @@ const Hero = () => {
               </span>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

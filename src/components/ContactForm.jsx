@@ -1,4 +1,6 @@
+// src/components/ContactForm.jsx
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // useNavigate ko import kiya
 import { insertContactForm } from '../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 import SuccessMessage from './SuccessMessage';
@@ -11,8 +13,8 @@ const ContactForm = ({ onClose }) => {
     message: '',
   });
 
-  const [visible, setVisible] = useState(true);
-   const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate(); // useNavigate ko initialize kiya
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,134 +22,104 @@ const ContactForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await insertContactForm(formData);
       setFormData({ name: '', email: '', phone: '', message: '' });
       setSubmitted(true);
     } catch (error) {
-      alert('Failed to send message. Try again later.');
+      console.error("Contact form submission error:", error);
+      alert('Failed to send message. Please try again later.');
     }
   };
-  
-useEffect(() => {
-  // Only lock scroll if ContactForm is used in popup mode
+
+  // Scroll lock for popup mode
+  useEffect(() => {
+    if (onClose) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'auto';
+      };
+    }
+  }, [onClose]);
+
+  // 👇 YAHAN PAR MAIN LOGIC CHANGE KIYA HAI
+  // Close popup or redirect after 3 seconds on success
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        if (onClose) {
+          // Agar form popup mein hai, toh sirf popup band karo
+          onClose();
+        } else {
+          // Agar form page par hai, toh home page par redirect karo
+          navigate('/');
+        }
+      }, 3000); // 3 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [submitted, onClose, navigate]); // navigate ko dependency array mein add kiya
+
+  const formContent = (
+    <>
+      {/* Form Header */}
+      <div className="text-left mb-8">
+        <h2 className="text-3xl font-bold text-zinc-800 dark:text-white">
+          Get in Touch
+        </h2>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-1">
+          We'd love to hear from you! Fill out the form to get started.
+        </p>
+      </div>
+
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" placeholder="*Enter your name" required />
+        </div>
+        <div>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" placeholder="*Enter your work email" required />
+        </div>
+        <div>
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" placeholder="*Enter your mobile number" required />
+        </div>
+        <div>
+          <textarea name="message" value={formData.message} onChange={handleChange} rows="4" className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" placeholder="*Your message" required ></textarea>
+        </div>
+        <div className="pt-2">
+          <button type="submit" className="w-full bg-slate-700 hover:bg-slate-800 text-white font-bold px-8 py-3 rounded-md shadow-sm hover:shadow-md transition-all duration-300 ease-in-out transform hover:-translate-y-0.5">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </>
+  );
+
+  // Agar popup mein hai (onClose prop mila hai), toh motion.div ke saath render karo
   if (onClose) {
-    document.body.style.overflow = visible ? 'hidden' : 'auto';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }
-}, [visible, onClose]);
-
-
- return (
-    <AnimatePresence>
-      {submitted ? (
-        <SuccessMessage onClose = {onClose} />
-      ) : (
-        visible && (
+    return (
+      <AnimatePresence>
+        {submitted ? (
+          <SuccessMessage onClose={onClose} />
+        ) : (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            className="w-full md:max-w-3xl bg-white dark:bg-zinc-900 p-4 sm:p-6 rounded-lg shadow-xl max-h-screen overflow-y-auto relative"
+            className="w-full max-w-lg bg-white dark:bg-zinc-900 p-8 rounded-lg shadow-xl relative"
           >
-            <div className="flex justify-end mb-2 md:hidden">
-              <button
-                onClick={() => {
-                  setVisible(false);
-                  if (onClose) onClose();
-                }}
-                className="text-gray-600 dark:text-gray-300 text-2xl font-bold"
-                aria-label="Close"
-              >
-                &times;
-              </button>
-            </div>
-
-            <h2 className="text-3xl font-semibold text-center text-indigo-600 dark:text-indigo-400 mb-6">
-              Get in Touch
-            </h2>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                  placeholder="+91 1234567890"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="5"
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                  placeholder="Type your message here..."
-                  required
-                ></textarea>
-              </div>
-
-              <div className="flex justify-center pt-2">
-                <button
-                  type="submit"
-                  className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-md 
-             hover:brightness-110 hover:shadow-lg hover:scale-105 
-             transition-all duration-300 ease-in-out transform"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+            <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            {formContent}
           </motion.div>
-        )
-      )}
-    </AnimatePresence>
-  );
+        )}
+      </AnimatePresence>
+    );
+  }
+
+  // Agar page par hai, toh seedha content render karo
+  return submitted ? <SuccessMessage /> : formContent;
 };
 
 export default ContactForm;

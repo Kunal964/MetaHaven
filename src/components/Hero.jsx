@@ -132,7 +132,7 @@ const Hero = () => {
         </div>
 
         {/* Clickable City Icons */}
-        {/* <div className="grid grid-cols-3 md:grid-cols-6 gap-x-4 gap-y-6 justify-items-center mt-6">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-x-4 gap-y-6 justify-items-center mt-6">
           {cities.map((city, index) => (
             <div
               key={index}
@@ -152,7 +152,7 @@ const Hero = () => {
               </span>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

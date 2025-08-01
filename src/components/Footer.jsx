@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center mb-4">
               <img
                 src="images/CompanyLogo.png"
-                alt="Metahaven Logo"
+                alt="Launch Your Biz Anywhere. | Virtual Offices Starting at ₹799/month"
                 className="h-16 w-auto object-contain cursor-pointer"
               />
             </div>

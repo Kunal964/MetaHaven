@@ -42,10 +42,17 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             >
               <Link to="/">
                 <img
-                  src="/CompanyLogo.png"
+                  src="/images/Logo.jpg"
                   alt="Metahaven Logo"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />
+              </Link>
+              <Link
+                to="/"
+                className="text-[#002b5c] dark:text-[#94a3b8] font-bold text-xl tracking-wide
+  transition duration-300 hover:text-[#002b5c]"
+              >
+                MetaHaven
               </Link>
             </div>
 
@@ -114,7 +121,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             >
               <Link to="/">
                 <img
-                  src="/CompanyLogo.png"
+                  src="/images/Logo.jpg"
                   alt="Metahaven Logo"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />

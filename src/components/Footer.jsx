@@ -9,8 +9,8 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img
-                src="images/CompanyLogo.png"
-                alt="Launch Your Biz Anywhere. | Virtual Offices Starting at ₹799/month"
+                src="/images/Logo.jpg"
+                alt="Metahaven Logo" 
                 className="h-16 w-auto object-contain cursor-pointer"
               />
             </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                   href="tel:8368299618"
                   className="hover:text-indigo-500 transition"
                 >
-                   +91-8368299618
+                  +91-8368299618
                 </a>
               </li>
             </ul>

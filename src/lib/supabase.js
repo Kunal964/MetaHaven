@@ -33,3 +33,17 @@ export const insertExpertDetails = async (data) => {
 
   return response
 }
+
+// Newsletter subscribers related function
+export const insertSubscriber = async (emailData) => {
+  const { data, error } = await supabase
+    .from('subscribers')
+    .insert([emailData]);
+
+  if (error) {
+    console.error('Error inserting subscriber:', error);
+    throw error;
+  }
+
+  return data;
+}

@@ -42,15 +42,29 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             >
               <Link to="/">
                 <img
-                  src="/images/Logo.jpg"
-                  alt="Metahaven Logo"
+                  src="/images/Logo.png"
+                  alt="Metahuen Logo"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />
               </Link>
               <Link
                 to="/"
-                className="text-[#002b5c] dark:text-[#94a3b8] font-bold text-xl tracking-wide
-  transition duration-300 hover:text-[#002b5c]"
+                className=" font-bold
+      tracking-wide
+      text-[1.40rem]
+      leading-[1.45rem]
+      
+      -ml-3
+
+      relative  // for top and bottom alignment
+      bottom-1 
+
+      text-white
+      [-webkit-text-stroke:1px_#002b5c]
+      dark:[-webkit-text-stroke:1px_#94a3b8]
+      [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.4))]
+      no-underline
+    "
               >
                 MetaHaven
               </Link>
@@ -121,7 +135,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             >
               <Link to="/">
                 <img
-                  src="/images/Logo.jpg"
+                  src="/images/Logo.png"
                   alt="Metahaven Logo"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />

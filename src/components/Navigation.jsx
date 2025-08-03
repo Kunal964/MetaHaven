@@ -43,7 +43,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               <Link to="/">
                 <img
                   src="/images/Logo.png"
-                  alt="Metahuen Logo"
+                  alt="Metahaven Logo"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />
               </Link>
@@ -129,7 +129,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
 
           {/* Mobile View Toggle Button (hamburger) */}
           <div className="flex md:hidden justify-between items-center h-16">
-            <div
+             <div
               className="flex items-center"
               style={{ height: "64px", overflow: "hidden" }}
             >
@@ -137,8 +137,30 @@ const Navigation = ({ darkMode, setDarkMode }) => {
                 <img
                   src="/images/Logo.png"
                   alt="Metahaven Logo"
-                  className="h-16 w-auto object-contain cursor-pointer"
+                  className="h-16 w-auto object-contain cursor-pointer   text-[1.20rem]
+      leading-[1.45rem]"
                 />
+              </Link>
+              <Link
+                to="/"
+                className=" font-bold
+      tracking-wide
+      text-[1.20rem]
+      leading-[1.45rem]
+      
+      -ml-3
+
+      relative  // for top and bottom alignment
+      bottom-1 
+
+      text-white
+      [-webkit-text-stroke:1px_#002b5c]
+      dark:[-webkit-text-stroke:1px_#94a3b8]
+      [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.4))]
+      no-underline
+    "
+              >
+                MetaHaven
               </Link>
             </div>
             <button

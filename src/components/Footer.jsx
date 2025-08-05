@@ -45,8 +45,8 @@ const Footer = () => {
             {/* Column 1: Logo & Socials */}
             <div>
               <img
-                src="/images/Logo.png" // White logo yahan use karein
-                alt="Metahaven Logo"
+                src="/images/Logo.png" 
+                alt="Metahaven"
                 className="h-12 w-auto mb-4 filter brightness-0 invert"
               />
               <p className="max-w-xs text-sm">

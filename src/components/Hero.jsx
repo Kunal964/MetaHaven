@@ -42,11 +42,11 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 animate-fade-in-up">
-          Explore Premium Virtual Office Spaces
+          Premium Virtual Offices in India
         </h1>
         <p className="text-lg md:text-xl text-white mb-8 animate-fade-in-up delay-100">
-          Access professional business addresses and virtual workspaces across
-          India
+          Get a professional business address and workspaces, with plans
+          starting at just ₹799/month.
         </p>
 
         {/* Search Bar */}

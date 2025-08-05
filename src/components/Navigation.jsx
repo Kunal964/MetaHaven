@@ -127,7 +127,6 @@ const Navigation = ({ darkMode, setDarkMode }) => {
             </div>
           </div>
 
-          {/* Mobile View Toggle Button (hamburger) */}
           <div className="flex md:hidden justify-between items-center h-16">
              <div
               className="flex items-center"

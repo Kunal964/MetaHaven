@@ -43,7 +43,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               <Link to="/">
                 <img
                   src="/images/Logo.png"
-                  alt="Metahaven Logo"
+                  alt="Metahaven"
                   className="h-16 w-auto object-contain cursor-pointer"
                 />
               </Link>
@@ -135,7 +135,7 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               <Link to="/">
                 <img
                   src="/images/Logo.png"
-                  alt="Metahaven Logo"
+                  alt="Metahaven"
                   className="h-16 w-auto object-contain cursor-pointer   text-[1.20rem]
       leading-[1.45rem]"
                 />

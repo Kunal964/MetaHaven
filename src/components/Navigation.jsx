@@ -37,40 +37,18 @@ const Navigation = ({ darkMode, setDarkMode }) => {
           {/* 🖥️ Desktop View */}
           <div className="hidden md:flex items-center h-16">
             <div
-              className="flex items-center"
-              style={{ height: "64px", overflow: "hidden" }}
+              className="flex items-center -ml-6"
+              // 1. Iski height ko bhi 64px se 80px karna hoga
+              style={{ height: "128px", overflow: "hidden" }}
             >
               <Link to="/">
                 <img
-                  src="/images/Logo.png"
+                  src="/images/MH_Logo.png"
                   alt="Metahaven"
-                  className="h-16 w-auto object-contain cursor-pointer"
+                  className="h-36 w-auto object-contain cursor-pointer"
                 />
               </Link>
-              <Link
-                to="/"
-                className=" font-bold
-      tracking-wide
-      text-[1.40rem]
-      leading-[1.45rem]
-      
-      -ml-3
-
-      relative  // for top and bottom alignment
-      bottom-1 
-
-      text-white
-      [-webkit-text-stroke:1px_#002b5c]
-      dark:[-webkit-text-stroke:1px_#94a3b8]
-      [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.4))]
-      no-underline
-    "
-              >
-                MetaHaven
-              </Link>
             </div>
-
-            {/* ✅ Center-Right: Navigation Links with reduced spacing */}
             <div className="flex space-x-8 ml-auto mr-8">
               <Link
                 to="/"
@@ -128,38 +106,17 @@ const Navigation = ({ darkMode, setDarkMode }) => {
           </div>
 
           <div className="flex md:hidden justify-between items-center h-16">
-             <div
-              className="flex items-center"
-              style={{ height: "64px", overflow: "hidden" }}
+            <div
+              className="flex items-center -ml-4"
+              // 1. Iski height ko bhi 64px se 80px karna hoga
+              style={{ height: "128px", overflow: "hidden" }}
             >
               <Link to="/">
                 <img
-                  src="/images/Logo.png"
+                  src="/images/MH_Logo.png"
                   alt="Metahaven"
-                  className="h-16 w-auto object-contain cursor-pointer   text-[1.20rem]
-      leading-[1.45rem]"
+                  className="h-32 w-auto object-contain cursor-pointer"
                 />
-              </Link>
-              <Link
-                to="/"
-                className=" font-bold
-      tracking-wide
-      text-[1.20rem]
-      leading-[1.45rem]
-      
-      -ml-3
-
-      relative  // for top and bottom alignment
-      bottom-1 
-
-      text-white
-      [-webkit-text-stroke:1px_#002b5c]
-      dark:[-webkit-text-stroke:1px_#94a3b8]
-      [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.4))]
-      no-underline
-    "
-              >
-                MetaHaven
               </Link>
             </div>
             <button

@@ -6,7 +6,7 @@ const Features = () => {
   const featureData = [
     {
       icon: Building2,
-      title: "New Company Registration Plan",
+      title: "Business Registration Plan",
       description:
         "Register your company at premium addresses in any city in India without taking a physical office space.",
       points: [
@@ -35,17 +35,14 @@ const Features = () => {
     },
     {
       icon: MapPin,
-      title: "Business Address Plan",
+      title: "Mailing Address Plan",
       description:
-        "Get a professional business address for your company at prime locations",
+        "Get a professional mailing address for your company at prime locations",
       points: [
         "Mail & Courier Handling, Address on Business Cards, Letter Heads.",
         "A prestigious business address in a prime city location.",
         "A dedicated team to receive all your mails and couriers.",
-        "Gives you the flexibility to register your business in a major city.",
-        "Fully compliant with MCA (Ministry of Corporate Affairs) regulations.",
-        "A valid commercial address for all GST registration needs.",
-        "Receive all necessary documentation for address verification.",
+        "Gives you the flexibility to register your business in a major city.",   
       ],
     },
   ];

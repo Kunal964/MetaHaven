@@ -17,6 +17,7 @@ import Noida from './components/locations/Noida';
 import Ahmedabad from './components/locations/Ahmedabad';
 import Mumbai from './components/locations/Mumbai';
 import Bangalore from './components/locations/Bangalore';
+import AboutUs from './components/AboutUs.jsx';
 
 // Helper component to scroll to top on route change
 function ScrollToTop() {
@@ -56,6 +57,7 @@ function App() {
             
             {/* Baaki saare routes waise hi rahenge */}
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutUs/>} />
 
             {/* Location screens */}
             <Route path="/location/gurgaon" element={<Gurgaon />} />

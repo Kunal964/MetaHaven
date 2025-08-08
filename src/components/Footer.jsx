@@ -124,15 +124,13 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:text-white">
+                  <Link to="/terms" className="hover:text-white">
                     Terms of Service
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-
-          {/* === RIGHT SIDE BLOCK === */}
           <div className="w-full lg:w-80 lg:flex-shrink-0">
             {/* Newsletter Form */}
             <div>

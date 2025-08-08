@@ -3,9 +3,9 @@ import React from "react";
 const AboutUs = () => {
   return (
     // Yeh class har screen size par layout ko aache se handle karegi
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 text-gray-800">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 text-gray-800">
       
-      <h1 className="text-4xl font-bold mb-6 text-center">About Us</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center sm:text-left">About Us</h1>
       
       <p className="text-lg mb-6 text-justify">
         <strong>Metahaven Workspaces</strong> is India’s trusted virtual office
@@ -50,7 +50,7 @@ const AboutUs = () => {
         India.
       </p>
       
-    </section>
+    </div>
   );
 };
 

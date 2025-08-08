@@ -38,8 +38,7 @@ const TermsOfService = () => {
       <h2 className="text-xl font-semibold mt-6 mb-2">4. Payment & Pricing</h2>
       <p className="mb-4">
         All fees for services are to be paid in advance. Our standard pricing
-        includes ₹5,000/year for GST or business registration and ₹2,000/year for
-        permanent signage. Pricing is subject to change with prior notice.
+        includes ₹799/year for GST or business registration.
       </p>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">5. Partner Spaces</h2>

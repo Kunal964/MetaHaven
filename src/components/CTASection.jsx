@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ContactForm from './ContactForm';
+import { useAppContext } from '../context/AppContext'; 
 
 const CTASection = () => {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const handleContactClick = () => {
+  const { isMobile, openPopup } = useAppContext();
+ 
+   const handleContactClick = () => {
     if (isMobile) {
-      setShowPopup(true);
+      openPopup(); // Context se function call karein
     } else {
       navigate('/contact');
     }
@@ -40,13 +32,6 @@ const CTASection = () => {
           Contact Us
         </button>
       </div>
-
-      {/* Mobile popup only */}
-      {showPopup && isMobile && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <ContactForm onClose={() => setShowPopup(false)} />
-        </div>
-      )}
     </div>
   );
 };

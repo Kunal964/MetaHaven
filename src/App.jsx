@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AppProvider } from './context/AppContext.jsx';
 
 // Layout Components
 import Navigation from './components/Navigation';
@@ -9,6 +10,7 @@ import Footer from './components/Footer';
 // Page Components
 import HomePage from './components/pages/HomePage.jsx'; // Naya HomePage import kiya
 import ContactPage from './components/ContactPage';
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 
 // Location Page Components
 import Gurgaon from './components/locations/Gurgaon';
@@ -19,6 +21,8 @@ import Mumbai from './components/locations/Mumbai';
 import Bangalore from './components/locations/Bangalore';
 import AboutUs from './components/AboutUs.jsx';
 import TermsOfService from './components/TermsOfService.jsx';
+
+
 
 // Helper component to scroll to top on route change
 function ScrollToTop() {
@@ -45,7 +49,9 @@ function App() {
   }, [darkMode]);
 
   return (
+   
     <Router>
+     <AppProvider>
       <ScrollToTop />
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
         {/* Navigation aur Footer har page par dikhenge */}
@@ -60,6 +66,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutUs/>} />
             <Route path="/terms" element={<TermsOfService/>} />
+            <Route path = "/privacy" element= {<PrivacyPolicy/>} />
 
             {/* Location screens */}
             <Route path="/location/gurgaon" element={<Gurgaon />} />
@@ -70,9 +77,9 @@ function App() {
             <Route path="/location/bangalore" element={<Bangalore />} />
           </Routes>
         </main>
-        
         <Footer />
       </div>
+      </AppProvider>
     </Router>
   );
 }

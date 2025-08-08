@@ -21,7 +21,7 @@ const ContactPage = () => {
             <img
               src="/images/Office_1.jpg" // Make sure this image path is correct in your public folder
               alt="Our office space"
-              className="rounded-xl shadow-2xl w-full h-full max-h-[600px] object-cover"
+              className="rounded-xl shadow-2xl w-full h-full max-h-[550px] object-cover"
               onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x600/e2e8f0/475569?text=MetaHaven+Office'; }}
             />
           </div>

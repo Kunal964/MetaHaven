@@ -3,12 +3,15 @@ import { insertSubscriber } from '../lib/supabase'; // Apne Supabase client ko i
 
 import { Link } from 'react-router-dom';
 
+import { useAppContext } from '../context/AppContext'; 
+
 // Lucide React se icons import karein
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(''); // User ko feedback dene ke liye
+  const { isMobile, openPopup } = useAppContext();
 
   // Form submit hone par yeh function chalega
   const handleSubmit = async (e) => {
@@ -34,6 +37,14 @@ const Footer = () => {
     setTimeout(() => {
       setMessage('');
     }, 3000);
+  };
+
+  const handleContactClick = (e) => {
+    if (isMobile) {
+      e.preventDefault(); // Page navigation ko rokein
+      openPopup();      // Popup kholein
+    }
+    // Desktop par yeh default Link behavior follow karega
   };
 
   return (
@@ -114,12 +125,16 @@ const Footer = () => {
 
                 {/* Baki links ke liye bhi routes define karke yahan daal do */}
                 <li>
-                  <Link to="/contact" className="hover:text-white">
-                    Contact
-                  </Link>
+                <Link
+                to="/contact"
+                onClick={handleContactClick}
+                className="hover:text-white"
+              >
+                Contact
+              </Link>
                 </li>
                 <li>
-                  <Link to="/" className="hover:text-white">
+                  <Link to="/privacy" className="hover:text-white">
                     Privacy Policy
                   </Link>
                 </li>

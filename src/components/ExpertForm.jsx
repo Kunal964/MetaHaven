@@ -92,7 +92,7 @@ const ExpertForm = ({ onClose }) => {
                             value={formData.name}
                             onChange={handleChange}
                             className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            placeholder="*Enter your name"
+                            placeholder="Name"
                             required
                         />
                     </div>
@@ -104,7 +104,7 @@ const ExpertForm = ({ onClose }) => {
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            placeholder="*Enter your mobile number"
+                            placeholder="Mobile Number"
                             required
                         />
                     </div>
@@ -116,7 +116,7 @@ const ExpertForm = ({ onClose }) => {
                             value={formData.email}
                             onChange={handleChange}
                             className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-4 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            placeholder="*Enter your work email"
+                            placeholder="Email"
                             required
                         />
                     </div>

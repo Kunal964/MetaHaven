@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { Building2, Menu, X } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import ContactForm from "./ContactForm";
-import { Mail, Phone } from "lucide-react";
+import { Menu, X, Mail, Phone  } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { useAppContext } from '../context/AppContext';
+
 
 const Navigation = ({ darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-
+  const { isMobile, openPopup } = useAppContext();
+  
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
   
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  const handleContactClick = (e) => {
+    if (isMobile) {
+      e.preventDefault();
+      setIsMenuOpen(false); // Menu band karein
+      openPopup();          // Context se popup kholein
+    } else {
+      // Desktop par kuch extra karne ki zaroorat nahi, Link kaam karega
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -161,16 +163,8 @@ const Navigation = ({ darkMode, setDarkMode }) => {
               Locations
             </Link>
             <Link
-              to={isMobile ? "#" : "/contact"}
-              onClick={(e) => {
-                if (isMobile) {
-                  e.preventDefault();
-                  setIsMenuOpen(false);
-                  setShowPopup(true);
-                } else {
-                  setIsMenuOpen(false);
-                }
-              }}
+              to="/contact"
+              onClick={handleContactClick}
               className="block text-black dark:text-white hover:text-indigo-600 transition duration-300 font-semibold"
             >
               Contact Us
@@ -198,12 +192,6 @@ const Navigation = ({ darkMode, setDarkMode }) => {
           </div>
         )}
       </nav>
-
-      {showPopup && isMobile && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-          <ContactForm onClose={() => setShowPopup(false)} />
-        </div>
-      )}
     </>
   );
 };

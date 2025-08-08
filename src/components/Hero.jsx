@@ -33,7 +33,7 @@ const Hero = () => {
       className="pt-8 relative bg-cover bg-center bg-no-repeat transition-all duration-500"
       style={{
         backgroundImage: `url('/images/Office2.jpg')`,
-        minHeight: "80vh",
+        minHeight: "90vh",
       }}
     >
       {/* Dark Overlay */}

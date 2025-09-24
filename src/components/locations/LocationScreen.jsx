@@ -43,9 +43,9 @@ const LocationScreen = ({ title, description, image }) => {
         </p>
         <button
           onClick={handleContactClick}
-         className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-full shadow-md 
-             hover:brightness-110 hover:shadow-lg hover:scale-105 
-             transition-all duration-300 ease-in-out transform"
+         className="bg-slate-700 text-white px-8 py-3 rounded-full shadow-md 
+           hover:bg-slate-500 hover:shadow-lg hover:scale-105 
+           transition-all duration-300 ease-in-out transform"
         >
           Contact Us →
         </button>
